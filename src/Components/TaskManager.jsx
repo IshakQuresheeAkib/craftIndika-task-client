@@ -1,15 +1,21 @@
-import {DndContext} from '@dnd-kit/core';
+import {DndContext, closestCorners} from '@dnd-kit/core';
+import { useState } from 'react';
+import Column from './Column/Column';
 
-import {Draggable} from './Draggable';
-import {Droppable} from './Droppable';
+
 
 const TaskManager = () => {
     
+    const [tasks,setTasks] = useState([
+        { id: 1, title: "Add tests to homepage" },
+        { id: 2, title: "Fix styling in about section" },
+        { id: 3, title: "Learn how to center a div" },
+      ])
+
     return (
-        <DndContext>
-      <Draggable />
-      <Droppable />
-    </DndContext>
+        <DndContext collisionDetection={closestCorners}>
+            <Column tasks={tasks}/>
+        </DndContext>
     );
 }
 export default TaskManager;
