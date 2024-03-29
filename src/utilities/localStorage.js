@@ -5,20 +5,20 @@ const getStoredTasks = () => {
 }
 
 
-const saveTasksToLS = (id) => {
-    const tasksStringified = JSON.stringify(id);
+const saveTasksToLS = (task) => {
+    const tasksStringified = JSON.stringify(task);
     localStorage.setItem('tasks',tasksStringified);
 }
 
-const addToLS = (id) => {
+const addToLS = (task) => {
     const tasks = getStoredTasks();
-    tasks.push(id);
+    tasks.push(task);
     saveTasksToLS(tasks);
 }
 
-const removeFromLS = (id) => {
+const removeFromLS = (task) => {
     const tasks = getStoredTasks();
-    const remaining = tasks.filter(item => item !== id);
+    const remaining = tasks.filter(item => item !== task);
     saveTasksToLS(remaining);
 }
 
@@ -26,4 +26,4 @@ const removeAllFromLS = () => {
     localStorage.removeItem('tasks');
 }
 
-export { addToLS,getStoredTasks,removeFromLS,removeAllFromLS }
+export { addToLS,getStoredTasks,removeFromLS,removeAllFromLS,saveTasksToLS }
