@@ -14,6 +14,7 @@ const TaskManager = () => {
         axios.get('https://jsonplaceholder.typicode.com/todos')
         .then((res)=>{
             setDatas(res.data);
+            localStorage.setItem('todos', JSON.stringify(res.data))
             console.log(res.data);
         })
         .catch(err=>console.log(err))
