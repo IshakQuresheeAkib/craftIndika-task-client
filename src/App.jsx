@@ -1,9 +1,10 @@
+import TaskManager from "./Components/TaskManager"
 
 function App() {
 
   return (
     <div>
-      hello world
+      <TaskManager></TaskManager>
     </div>
   )
 }
