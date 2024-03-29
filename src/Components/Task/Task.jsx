@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const Task = ({id,title}) => {
+const Task = ({id,title,completed}) => {
     
     const {attributes,listeners,setNodeRef,transform,transition} =  useSortable({id})
 
@@ -16,8 +16,8 @@ const Task = ({id,title}) => {
         {...attributes} 
         {...listeners} 
         style={style}
-        className="shadow-sm p-2 flex gap-2 items-center touch-none">
-        <input type="checkbox" className='checkbox checkbox-info checkbox-sm '></input>
+        className={`shadow-sm p-2 flex gap-2 items-center touch-none ${completed && ' line-through'}`}>
+        {completed || <input type="checkbox" className='checkbox checkbox-info checkbox-sm '/>}
         {title}
         </div>
     );

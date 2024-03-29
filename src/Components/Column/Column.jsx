@@ -8,7 +8,7 @@ const Column = ({tasks}) => {
             <p className="font-bold text-2xl">Tasks</p>
             <SortableContext items={tasks} strategy={verticalListSortingStrategy}>
             {
-                tasks?.map((task) =><Task id={task.id} key={task.id} title={task.title}/>)
+                tasks?.map((task) =><Task id={task.id} key={task.id} title={task.title} completed={task.completed}/>)
             }
             </SortableContext>
         </div>
