@@ -16,8 +16,8 @@ const Task = ({id,title}) => {
         {...attributes} 
         {...listeners} 
         style={style}
-        className="mt-5 shadow p-3 flex  gap-2 items-center">
-        <input type="checkbox" className='checkbox checkbox-info checkbox-sm'></input>
+        className="shadow-sm p-2 flex gap-2 items-center touch-none">
+        <input type="checkbox" className='checkbox checkbox-info checkbox-sm '></input>
         {title}
         </div>
     );

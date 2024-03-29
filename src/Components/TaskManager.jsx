@@ -1,17 +1,29 @@
 import {DndContext, KeyboardSensor, PointerSensor, TouchSensor, closestCorners, useSensor, useSensors} from '@dnd-kit/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Column from './Column/Column';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
+import axios from 'axios';
 
 
 
 const TaskManager = () => {
+
+    const [datas, setDatas] = useState([]);
     
-    const [tasks,setTasks] = useState([
-        { id: 1, title: "Add tests to homepage" },
-        { id: 2, title: "Fix styling in about section" },
-        { id: 3, title: "Learn how to center a div" },
-    ])
+    useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/todos')
+        .then((res)=>{
+            setDatas(res.data);
+            console.log(res.data);
+        })
+        .catch(err=>console.log(err))
+    },[])
+
+    useEffect(() => {
+        setTasks(datas);
+    }, [datas]); 
+    
+    const [tasks,setTasks] = useState(datas)
     
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
 
