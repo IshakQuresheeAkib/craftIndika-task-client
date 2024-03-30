@@ -42,13 +42,13 @@ function App() {
       </button>
       <p className="font-bold text-5xl">Tasks</p>
       </div>
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle w-96 mx-auto">
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle w-96 mx-auto h-auto">
         <div className="modal-box">
           
-          <input ref={taskRef} className='input input-info' placeholder='Add New Task' required/>
+          <input ref={taskRef} className='input input-info focus:outline-none focus:border-2' placeholder='Add New Task' required/>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn btn-info ml-3 text-white rounded-full" onClick={()=>handleAddTask()}>Save</button>
+              <button className="btn btn-info ml-3 text-white rounded-full shadow-md" onClick={()=>handleAddTask()}>Save</button>
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
           </div>

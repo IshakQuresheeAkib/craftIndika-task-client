@@ -2,6 +2,8 @@ import {DndContext, KeyboardSensor, PointerSensor, TouchSensor, closestCorners, 
 import Column from './Column/Column';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { isTasksExist, saveTasksToLS } from '../utilities/localStorage';
+import { useState } from 'react';
+import { restrictToParentElement, restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
 
 
@@ -9,10 +11,18 @@ const TaskManager = ({tasks,setTasks}) => {
 
     isTasksExist() && saveTasksToLS(tasks)
  
+    const [idNumber,setIdNumber] = useState(0)
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
+
+
+    const handleClick = () => {
+        alert('hello')
+    }
 
     const handleDragEnd = event => {
         const {active,over} = event
+        setIdNumber(active.id)
+        console.log('active:',active.id);
 
         if (active?.id === over?.id) return;
         setTasks(tasks =>{
@@ -36,10 +46,10 @@ const TaskManager = ({tasks,setTasks}) => {
 
 
     return (
-        <div >           
-            <DndContext sensors={sensor} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-            <Column tasks={tasks}/>
-        </DndContext>
+        <div>
+            <DndContext sensors={sensor} onDragEnd={handleDragEnd} collisionDetection={closestCorners} modifiers={[restrictToVerticalAxis, restrictToParentElement]}>
+                <Column tasks={tasks} idNumber={idNumber} handleClick={handleClick}/>
+            </DndContext>
         </div>
     );
 }
