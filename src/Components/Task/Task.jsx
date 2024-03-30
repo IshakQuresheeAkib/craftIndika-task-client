@@ -1,14 +1,14 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { useState } from "react";
-import { MdCheckBoxOutlineBlank } from "react-icons/md";
-import { MdCheckBox } from "react-icons/md";
+// import { useState } from "react";
+// import { MdCheckBoxOutlineBlank } from "react-icons/md";
+// import { MdCheckBox } from "react-icons/md";
 
 
 const Task = ({id,title,completed}) => {
     
     const {attributes,listeners,setNodeRef,transform,transition} =  useSortable({id})
-    const [isChecked,setIsChecked] = useState(false)
+    // const [isChecked,setIsChecked] = useState(false)
     // ToDo = to make checked completed tasks
 
     const style = {
@@ -16,7 +16,7 @@ const Task = ({id,title,completed}) => {
         transform: CSS.Transform.toString(transform),
     }
     
-    
+    console.log();
 
     return (
         <div 
@@ -25,9 +25,9 @@ const Task = ({id,title,completed}) => {
         {...listeners} 
         style={style}
         className={`shadow-sm p-2 flex gap-2 items-center touch-none ${completed && ' line-through'}`}>
-        <div className="text-blue-500 text-xl" >
+        {/* <div className="text-blue-500 text-xl" >
             {completed ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
-        </div>
+        </div> */}
         {title}
         </div>
     );
