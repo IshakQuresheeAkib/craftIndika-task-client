@@ -38,8 +38,7 @@ const TaskManager = ({tasks,setTasks}) => {
 
 
     return (
-        <div >
-            
+        <div >           
             <DndContext sensors={sensor} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
             <Column tasks={tasks}/>
         </DndContext>
