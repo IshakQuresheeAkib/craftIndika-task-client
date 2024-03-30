@@ -25,9 +25,9 @@ const Task = ({id,title,completed}) => {
         {...listeners} 
         style={style}
         className={`shadow-sm p-2 flex gap-2 items-center touch-none ${completed && ' line-through'}`}>
-        <div className="text-blue-500 text-xl" >
+        {/* <div className="text-blue-500 text-xl" >
             {completed ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
-        </div> */}
+        </div>  */}
         {title}
         </div>
     );
