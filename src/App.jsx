@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center gap-5 my-10">
+    <div className="flex flex-col justify-center items-center gap-5 my-10 mx-3">
         <input ref={taskRef} className='input input-info' placeholder='add task' required/>
         <button className="btn btn-info" onClick={()=>handleAddTask()}> Add Task</button>
         <TaskManager tasks={tasks} setTasks={setTasks}/>
