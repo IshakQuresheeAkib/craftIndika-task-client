@@ -1,14 +1,14 @@
 import {DndContext, KeyboardSensor, PointerSensor, TouchSensor, closestCorners, useSensor, useSensors} from '@dnd-kit/core';
 import Column from './Column/Column';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
-import { getStoredTasks, saveTasksToLS } from '../utilities/localStorage';
+import { isTasksExist, saveTasksToLS } from '../utilities/localStorage';
 
 
 
 const TaskManager = ({tasks,setTasks}) => {
 
     console.log(tasks);
-    saveTasksToLS(tasks)
+    isTasksExist() && saveTasksToLS(tasks)
  
     
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
