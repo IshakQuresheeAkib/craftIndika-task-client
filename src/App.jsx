@@ -26,7 +26,7 @@ function App() {
     const newTaskTitle = taskRef.current.value
     if (!newTaskTitle.length) return;
     const existingTasks = getStoredTasks()
-    const newTaskId = existingTasks[existingTasks.length - 1].id + 1
+    const newTaskId = existingTasks.length +1
     const newTask = {"id":newTaskId,"title":newTaskTitle,"completed":false}
     console.log(newTask);
     taskRef.current.value = ''

@@ -14,11 +14,6 @@ const TaskManager = ({tasks,setTasks}) => {
     const [idNumber,setIdNumber] = useState(0)
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
 
-
-    const handleClick = () => {
-        alert('hello')
-    }
-
     const handleDragEnd = event => {
         const {active,over} = event
         setIdNumber(active.id)
@@ -28,9 +23,6 @@ const TaskManager = ({tasks,setTasks}) => {
         setTasks(tasks =>{
             const originalPos = getTaskPos(active?.id)
             const newPos = getTaskPos(over?.id)
-            // console.log(active.id);
-            // const draggedTask = tasks.filter(item => item.id == active.id);
-            // console.log(draggedTask);
             return arrayMove(tasks, originalPos, newPos);
         })
     }
@@ -48,7 +40,7 @@ const TaskManager = ({tasks,setTasks}) => {
     return (
         <div>
             <DndContext sensors={sensor} onDragEnd={handleDragEnd} collisionDetection={closestCorners} modifiers={[restrictToVerticalAxis, restrictToParentElement]}>
-                <Column tasks={tasks} idNumber={idNumber} handleClick={handleClick}/>
+                <Column tasks={tasks} idNumber={idNumber} />
             </DndContext>
         </div>
     );
