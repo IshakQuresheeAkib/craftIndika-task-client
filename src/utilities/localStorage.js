@@ -6,7 +6,6 @@ const getStoredTasks = () => {
 
 const isTasksExist = () => {
     const storedTasksString = JSON.parse(localStorage.getItem('tasks'));
-    console.log(storedTasksString?.length);
     if (storedTasksString?.length) return true;
     return false;
 }

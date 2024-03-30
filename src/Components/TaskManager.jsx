@@ -7,10 +7,8 @@ import { isTasksExist, saveTasksToLS } from '../utilities/localStorage';
 
 const TaskManager = ({tasks,setTasks}) => {
 
-    console.log(tasks);
     isTasksExist() && saveTasksToLS(tasks)
  
-    
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
 
     const handleDragEnd = event => {

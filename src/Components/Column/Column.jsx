@@ -5,7 +5,7 @@ const Column = ({tasks}) => {
     
     return (
         <div className=" shadow-inner shadow-black/30 rounded-2xl md:p-5 p-2">
-            <p className="font-bold text-2xl text-center">Tasks</p>
+            
             <SortableContext items={tasks} strategy={verticalListSortingStrategy}>
             {
                 tasks?.map((task) =><Task id={task.id} key={task.id} title={task.title} completed={task.completed}/>)
