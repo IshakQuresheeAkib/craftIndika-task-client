@@ -4,16 +4,21 @@ const getStoredTasks = () => {
     return [];
 }
 
+const isTasksExist = () => {
+    const storedTasksString = localStorage.getItem('tasks');
+    if (storedTasksString) return true;
+    return false;
+}
 
-const saveTasksToLS = (task) => {
-    const tasksStringified = JSON.stringify(task);
+const saveTasksToLS = (tasks) => {
+    const tasksStringified = JSON.stringify(tasks);
     localStorage.setItem('tasks',tasksStringified);
 }
 
 const addToLS = (task) => {
     const tasks = getStoredTasks();
     tasks.push(task);
-    saveTasksToLS(tasks);
+    saveTasksToLS(tasks)
 }
 
 const removeFromLS = (task) => {
@@ -26,4 +31,4 @@ const removeAllFromLS = () => {
     localStorage.removeItem('tasks');
 }
 
-export { addToLS,getStoredTasks,removeFromLS,removeAllFromLS,saveTasksToLS }
+export { addToLS,getStoredTasks,removeFromLS,removeAllFromLS,saveTasksToLS,isTasksExist }
