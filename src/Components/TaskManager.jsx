@@ -7,8 +7,6 @@ import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 const TaskManager = ({tasks,setTasks}) => {
 
     
- 
-    
     const getTaskPos = id => tasks.findIndex(task => task.id === id)
 
     const handleDragEnd = event => {
@@ -34,8 +32,7 @@ const TaskManager = ({tasks,setTasks}) => {
 
 
     return (
-        <div >
-            
+        <div >           
             <DndContext sensors={sensor} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
             <Column tasks={tasks}/>
         </DndContext>
